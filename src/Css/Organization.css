@@ -118,3 +118,38 @@
   align-items: center;
   margin-right: 10px;
 }
+
+/* mobile responsive */
+
+@media (max-width: 768px) {
+  .setup-organization-container-top {
+    padding: 10px;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  .setup-organization-container-bottom {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .setup-organization-container-top-section input {
+    width: 80%;
+  }
+
+  .right-section {
+    min-height: 100px;
+  }
+
+  .next-step-button {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .setup-organization-container-top-section-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

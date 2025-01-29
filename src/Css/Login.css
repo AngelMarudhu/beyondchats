@@ -55,16 +55,16 @@
 
 /* mobile responsive */
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .login-form {
     width: 80%;
   }
 
-  .login-header{
+  .login-header {
     justify-content: center;
   }
 
-  h2{
+  h2 {
     display: none;
   }
 }

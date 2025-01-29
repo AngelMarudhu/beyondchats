@@ -1,0 +1,120 @@
+.setup-organization-container {
+  width: 100%;
+  height: 100%;
+}
+
+.setup-organization-container-top {
+  max-width: 600px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+.setup-organization-container-top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.setup-organization-container-top-section input {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #ccc;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.setup-organization-container-top-section textarea {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #ccc;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.setup-organization-container-top-section-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.setup-organization-container-bottom {
+  width: auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  grid-gap: 10px;
+  align-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.setup-organization-container-bottom section {
+  border: 2px solid var(--secondary-color);
+}
+
+.page-container {
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
+  border: 2px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+.page-container.active {
+  border: 2px solid var(--primary-color);
+}
+
+.page-container-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-section li {
+  list-style-type: none;
+}
+
+.next-step-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-step-button button {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}

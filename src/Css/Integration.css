@@ -78,3 +78,42 @@
   background-color: var(--secondary-color);
   cursor: pointer;
 }
+
+
+/* mobile responsive */
+
+@media(max-width:768px){
+  h1{
+    font-size: 16px;
+  }
+  .integration-container-top-buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .integration-container-top-buttons button {
+    margin-bottom: 1rem;
+    width: 80%;
+    font-size: 16px;
+    text-align: start;
+  }
+
+  .testing-container{
+    width: auto;
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .integration-website-container{
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .integration-website-content pre{
+    width: 90%;
+    margin: auto;
+    font-size: inherit;
+    text-wrap: wrap;
+  }
+}

@@ -79,11 +79,10 @@
   cursor: pointer;
 }
 
-
 /* mobile responsive */
 
-@media(max-width:768px){
-  h1{
+@media (max-width: 768px) {
+  h1 {
     font-size: 16px;
   }
   .integration-container-top-buttons {
@@ -99,18 +98,18 @@
     text-align: start;
   }
 
-  .testing-container{
+  .testing-container {
     width: auto;
     max-width: 100%;
     margin: 10px;
   }
 
-  .integration-website-container{
+  .integration-website-container {
     max-width: 100%;
     width: 100%;
   }
 
-  .integration-website-content pre{
+  .integration-website-content pre {
     width: 90%;
     margin: auto;
     font-size: inherit;

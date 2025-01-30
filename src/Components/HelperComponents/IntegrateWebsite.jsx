@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const IntegrateWebsite = () => {
   const [showCopySuccess, setShowCopySuccess] = useState(false);
@@ -29,7 +30,13 @@ const IntegrateWebsite = () => {
   };
 
   return (
-    <div className="integration-website-container">
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 1, y: 0 }}
+      className="integration-website-container"
+    >
       <div className="integration-website-content">
         <h2>Choose Integration Method</h2>
         <div>
@@ -45,17 +52,24 @@ const IntegrateWebsite = () => {
         </script>`}
           </pre>
           <div className="integration-container-top-buttons">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="commonButton"
               onClick={handleCopyCode}
-            >{`${showCopySuccess ? 'Copied✔️' : 'Copy Text'}`}</button>
-            <button className="commonButton" onClick={handleEmail}>
+            >{`${showCopySuccess ? 'Copied✔️' : 'Copy Text'}`}</motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="commonButton"
+              onClick={handleEmail}
+            >
               Send Email 📩
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

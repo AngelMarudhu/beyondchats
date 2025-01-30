@@ -6,6 +6,7 @@ import {
   setSelectedPage,
 } from '../Redux/OrganizationSlice';
 import { useNavigate } from 'react-router';
+import { motion } from 'framer-motion';
 
 const SetupOrganization = () => {
   const navigate = useNavigate();
@@ -76,8 +77,20 @@ const SetupOrganization = () => {
             name="companyDescription"
           />
           <div className="setup-organization-container-top-section-buttons">
-            <button className="commonButton">Fetch Data</button>
-            <button className="commonButton">Setup Your Organization</button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="commonButton"
+            >
+              Fetch Data
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="commonButton"
+            >
+              Setup Your Organization
+            </motion.button>
           </div>
         </section>
       </div>
@@ -121,9 +134,14 @@ const SetupOrganization = () => {
         </section>
       </div>
       <div className="next-step-button">
-        <button onClick={moveToIntegration} className="commonButton">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={moveToIntegration}
+          className="commonButton"
+        >
           Move To Integration
-        </button>
+        </motion.button>
       </div>
     </div>
   );

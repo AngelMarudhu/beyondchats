@@ -9,7 +9,7 @@ import TestIntegration from './Components/HelperComponents/TestIntegration.jsx';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route

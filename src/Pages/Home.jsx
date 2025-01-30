@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import '../Css/Home.css';
 import SetupOrganization from '../Components/SetupOrganization';
 import { logout } from '../Redux/LoginSlice';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,16 +22,25 @@ const Home = () => {
       <header className="home-container-header">
         <h3 className="commonButton">{user.user.name}</h3>
         <div>
-          <button className="commonButton" onClick={handleLogout}>
+          <motion.button
+            initial={{ x: -1000, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="commonButton"
+            onClick={handleLogout}
+          >
             Logout
-          </button>
+          </motion.button>
         </div>
         <div>
           {user.user.photo && (
-            <img
+            <motion.img
               className="profile-image commonButton"
               src={user.user.photo}
               alt="Profile"
+              initial={{ x: +100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
             />
           )}
         </div>

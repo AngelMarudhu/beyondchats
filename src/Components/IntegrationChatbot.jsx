@@ -10,6 +10,7 @@ const IntegrationChatbot = () => {
 
   const handleTestChatbot = () => {
     const chatbotPage = window.open('https://example.com', '_blank');
+    /// we just want to create a one div and placed on the top
   };
 
   const handleIntegration = () => {

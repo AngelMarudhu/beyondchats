@@ -61,9 +61,10 @@ const OtpAuthentication = ({ userDetails }) => {
                 />
             </div>
             <button
-                className="submit-btn"
+                className="commonButton"
                 onClick={handleSubmit}
                 disabled={loading}
+
             >
                 {loading ? 'Verifying...' : 'Verify OTP'}
             </button>

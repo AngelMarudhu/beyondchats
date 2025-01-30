@@ -21,17 +21,6 @@
   margin-top: 5px;
 }
 
-.submit-btn {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .submit-btn:disabled {
   background-color: #ccc;
 }

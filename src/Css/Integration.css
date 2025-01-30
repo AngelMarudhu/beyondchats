@@ -33,6 +33,7 @@
   color: black;
   margin-top: 1rem;
   border-radius: 10px;
+  box-shadow: var(--box-shadow);
 }
 
 .integration-website-content {
@@ -46,9 +47,11 @@
   margin: 1rem 0px 1rem 0px;
   padding: 5px;
   font-size: 20px;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
 }
 
-/* HELPER COMPONENTS EDITION DON'T MESSY INTEGRATIONCHATBOT COMPONENT */
+/* HELPER COMPONENTS EDITION DON'T MESSY INTEGRATION WEBSITE COMPONENT */
 
 .testing-container {
   max-width: 700px;

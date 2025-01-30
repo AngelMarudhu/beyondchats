@@ -28,7 +28,7 @@ This project is react based OTP authentication page the integrates firebase auth
 ### 12.User friendly UX experience with help of framer motion
 
 ## Live Demo 
-[Live Demo](https://beyond-chats-assessment.netlify.app/)
+Live Demo: [Live Demo](https://beyond-chats-assessment.netlify.app/)
 
 ## Installation
 1. Clone the repository (https://github.com/AngelMarudhu/beyondchats.git)

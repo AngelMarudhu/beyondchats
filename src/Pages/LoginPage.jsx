@@ -3,21 +3,20 @@ import '../Css/Login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaGoogle } from 'react-icons/fa';
 import { authProvider, auth } from '../Utils/Firebase';
-import { signInWithCredential, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import {
   loginInitialized,
   loginSuccess,
   loginFailure,
 } from '../Redux/LoginSlice';
 import { useNavigate } from 'react-router';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import OtpAuthentication from '../Components/OtpAuthentication';
 
 const LoginPage = () => {
+  const [showOtp, setShowOtp] = useState(false);
+  //// set random uid for now
   const [userDetails, setUserDetails] = useState({
-    uid: '',
+    uid: Math.random().toString(36).substring(2, 10),
     name: '',
     email: '',
     password: '',
@@ -72,42 +71,8 @@ const LoginPage = () => {
       alert('Password must be at least 6 characters long.');
       return;
     }
-
-    dispatch(loginInitialized());
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const { uid } = userCredential.user; ///// firebase will take care of uid guyz
-      dispatch(
-        loginSuccess({ uid: uid, name: name, email: email, photo: photo })
-      );
-    } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
-        try {
-          const userCredential = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-          const { uid } = userCredential.user; ///// firebase will take care of uid guyz
-          dispatch(
-            loginSuccess({ uid: uid, name: name, email: email, photo: photo })
-          );
-        } catch (error) {
-          if (error.code === 'auth/invalid-credential') {
-            dispatch(loginFailure('Ivalid Credentials'));
-          }
-        }
-      } else {
-        dispatch(loginFailure(error.message));
-      }
-    }
+    setShowOtp(true)
   };
-
   // console.log(error)
   return (
     <div className="login-page">
@@ -118,53 +83,60 @@ const LoginPage = () => {
           className="commonButton"
           style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
         >
-          <button className="commonButton">Login With Google</button>
+          <button className="commonButton" disabled={showOtp}>Login With Google</button>
           <FaGoogle />
         </div>
       </div>
-      <div className="login-container">
-        <div className="login-form">
-          {isLoading ? <h1>Loading...</h1> : <h1>Login</h1>}
-          <form action="" onSubmit={handleManualSubmit}>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={(e) => handleChange(e)}
-              value={userDetails.name}
-            />
-            <input
-              type="text"
-              placeholder="Email"
-              name="email"
-              onChange={(e) => handleChange(e)}
-              value={userDetails.email}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={(e) => handleChange(e)}
-              value={userDetails.password}
-            />
-            <button className="commonButton" type="submit">
-              Login
-            </button>
-          </form>
-          {error && (
-            <p
-              style={{
-                color: 'yellow',
-                fontSize: '20px',
-                marginTop: '20px',
-                textAlign: 'left',
-              }}
-            >
-              {error}
-            </p>
-          )}
-        </div>
-      </div>
+      {
+        showOtp ? (<OtpAuthentication userDetails={userDetails} />) : (
+          <div className="login-container">
+            <div className="login-form">
+              {isLoading ? <h1>Loading...</h1> : <h1>Login</h1>
+              }
+              <form action="" onSubmit={handleManualSubmit}>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  onChange={(e) => handleChange(e)}
+                  value={userDetails.name}
+                />
+                <input
+                  type="text"
+                  placeholder="Email"
+                  name="email"
+                  onChange={(e) => handleChange(e)}
+                  value={userDetails.email}
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={(e) => handleChange(e)}
+                  value={userDetails.password}
+                />
+                <button className="commonButton" type="submit">
+                  Login
+                </button>
+              </form>
+              {
+                error && (
+                  <p
+                    style={{
+                      color: 'yellow',
+                      fontSize: '20px',
+                      marginTop: '20px',
+                      textAlign: 'left',
+                    }}
+                  >
+                    {error}
+                  </p>
+                )
+              }
+            </div >
+          </div >
+        )
+      }
     </div>
   );
 };

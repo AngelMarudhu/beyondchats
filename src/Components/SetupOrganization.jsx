@@ -36,6 +36,23 @@ const SetupOrganization = () => {
     navigate('/integration');
   };
 
+  const handleAutoFetchDescription = () => {
+
+    if (!companyUrl || !companyName) {
+      alert("Please enter the company name and url");
+      return;
+    }
+    //// basic company url validation buddy
+
+    if (!companyUrl.includes('https://')) {
+      alert("Please enter a valid url");
+      return;
+    }
+
+    const data = "Your company description goes here. This is a sample description.";
+    dispatch(setOrganizationDetails({ field: 'companyDescription', value: data }));
+  }
+
   return (
     <div className="setup-organization-container">
       <div className="setup-organization-container-top">
@@ -74,6 +91,7 @@ const SetupOrganization = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onBlur={handleAutoFetchDescription}
             name="companyDescription"
           />
           <div className="setup-organization-container-top-section-buttons">
@@ -81,6 +99,7 @@ const SetupOrganization = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="commonButton"
+              onClick={handleAutoFetchDescription}
             >
               Fetch Data
             </motion.button>

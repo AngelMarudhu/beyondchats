@@ -6,6 +6,7 @@ import Home from './Pages/Home.jsx';
 import ProtectedRoute from './CustomHook/ProtectedRoute.jsx';
 import IntegrationChatbot from './Components/IntegrationChatbot.jsx';
 import TestIntegration from './Components/HelperComponents/TestIntegration.jsx';
+import OtpAuthentication from './Components/OtpAuthentication.jsx';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
       </Routes>
     </BrowserRouter>
   );

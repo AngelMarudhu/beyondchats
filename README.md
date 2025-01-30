@@ -30,3 +30,41 @@ Live Demo: [Live Demo](https://beyond-chats-assessment.netlify.app/)
 3. Install the dependencies (npm install)
 4. Run the application (npm run dev)
 
+# We can use this feature later it's a firebase login feature 
+
+1. Just import create and signin module from firebase/auth 
+
+const handleManualAuth = async () => {
+      dispatch(loginInitialized());
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const { uid } = userCredential.user; // firebase will take care of uid guyz
+    dispatch(
+      loginSuccess({ uid: uid, name: name, email: email, photo: photo })
+    );
+  } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+      try {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const { uid } = userCredential.user; // firebase will take care of uid guyz
+        dispatch(
+          loginSuccess({ uid: uid, name: name, email: email, photo: photo })
+        );
+      } catch (error) {
+        if (error.code === 'auth/invalid-credential') {
+          dispatch(loginFailure('Ivalid Credentials'));
+        }
+      }
+    } else {
+      dispatch(loginFailure(error.message));
+    }
+  }
+}

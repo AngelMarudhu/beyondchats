@@ -19,7 +19,7 @@ export const loginSlice = createSlice({
       state.isLoading = false;
       // console.log(action.payload.email)
       // we can store them in local storage we can easily retrive them in future buddy
-      console.log(action.payload);
+      // console.log(action.payload);
       const { uid, name, email, photo } = action.payload;
       state.user = { uid, name, email, photo };
 
